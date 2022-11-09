@@ -29,7 +29,7 @@ resource "google_compute_network" "vpc_network" {
 resource "google_compute_subnetwork" "default" {
   name          = "my-custom-subnet"
   ip_cidr_range = "10.0.1.0/24"
-  region        = "us-west1"
+  region        = "us-central1"
   network       = google_compute_network.vpc_network.id
 }
 resource "google_compute_instance" "vm_instance" {
@@ -81,4 +81,14 @@ resource "google_compute_firewall" "ssh" {
   priority      = 1000
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["ssh"]
+}
+# [START cloudloadbalancing_regional_health_check]
+resource "google_compute_region_health_check" "default" {
+  name               = "tcp-health-check"
+  timeout_sec        = 5
+  check_interval_sec = 5
+  tcp_health_check {
+    port = "80"
+  }
+  region = "us-central1"
 }

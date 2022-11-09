@@ -1,1 +1,11 @@
 .env
+credentials.json
+.terraform.lock.hcl
+crash.log
+
+test/fixtures/shared/terraform.tfvars
+
+test/integration/gcloud/config.sh
+test/integration/tmp
+
+credentials.json
