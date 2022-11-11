@@ -1,6 +1,7 @@
 .env
 credentials.json
 .terraform.lock.hcl
+.terraform
 crash.log
 
 test/fixtures/shared/terraform.tfvars
@@ -8,4 +9,4 @@ test/fixtures/shared/terraform.tfvars
 test/integration/gcloud/config.sh
 test/integration/tmp
 
-credentials.json
+terra.json
