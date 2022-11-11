@@ -23,9 +23,9 @@ provider "google" {
 }
 resource "google_project_service" "project" {
   service = "compute.googleapis.com"
-  lifecycle {
-    prevent_destroy = true
-  }
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
 }
 resource "google_compute_instance" "virtual_instance" {
   name         = "api-one-terra"

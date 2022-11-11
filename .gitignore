@@ -2,8 +2,10 @@
 credentials.json
 .terraform.lock.hcl
 .terraform
+.terraform.tfstate.info
+terraform.tfstate
+terraform.tfstate.backup
 crash.log
-
 test/fixtures/shared/terraform.tfvars
 
 test/integration/gcloud/config.sh
