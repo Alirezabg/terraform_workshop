@@ -1,8 +1,12 @@
 sudo apt install git 
+Y
+cd /home/alireza
 git clone https://github.com/Alirezabg/cyf-first-api.git 
 cd cyf-first-api
 sudo npm install pm2@latest -g 
-sudo install nginx
+y
+sudo apt install nginx
+y
 sudo unlink /etc/nginx/sites-available/default
 cd /etc/nginx/sites-available
 cat <<NGINXCONFIG >> myserver.config

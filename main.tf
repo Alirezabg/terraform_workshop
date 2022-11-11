@@ -24,13 +24,13 @@ provider "google" {
 resource "google_project_service" "project" {
   service = "compute.googleapis.com"
   lifecycle {
-     prevent_destroy = true
+    prevent_destroy = true
   }
 }
 resource "google_compute_instance" "virtual_instance" {
-  name = "api-one"
+  name         = "api-one-terra"
   machine_type = "f1-micro"
-  zone = "us-east1-c"
+  zone         = "us-east1-c"
 
   boot_disk {
     initialize_params {
@@ -41,6 +41,6 @@ resource "google_compute_instance" "virtual_instance" {
     network = "default"
     access_config {}
   }
-    metadata_startup_script = file("vm_startup_scrip.sh")
+  metadata_startup_script = file("vm_startup_scrip.sh")
 
 }
