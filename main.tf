@@ -27,10 +27,26 @@ resource "google_project_service" "project" {
   #   prevent_destroy = true
   # }
 }
+resource "google_compute_firewall" "default" {
+  name    = "web-firewall"
+  network = "default"
+
+  allow {
+    protocol = "icmp"
+  }
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80", "8000", "5001", "5000"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["web"]
+}
 resource "google_compute_instance" "virtual_instance" {
   name         = "api-one-terra"
-  machine_type = "f1-micro"
-  zone         = "us-east1-c"
+  machine_type = "e2-medium"
+  zone         = "us-central1-a"
 
   boot_disk {
     initialize_params {
@@ -42,5 +58,45 @@ resource "google_compute_instance" "virtual_instance" {
     access_config {}
   }
   metadata_startup_script = file("vm_startup_scrip.sh")
+
+  tags = ["http-server", "https-server", "web"]
+
+}
+resource "google_compute_instance" "virtual_instance2" {
+  name         = "api-two-terra"
+  machine_type = "e2-medium"
+  zone         = "us-central1-a"
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
+  }
+  network_interface {
+    network = "default"
+    access_config {}
+  }
+  metadata_startup_script = file("vm2_startup_script.sh")
+
+  tags = ["http-server", "https-server", "web"]
+
+}
+resource "google_compute_instance" "virtual_instance3" {
+  name         = "api-three-terra"
+  machine_type = "e2-medium"
+  zone         = "us-central1-a"
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
+  }
+  network_interface {
+    network = "default"
+    access_config {}
+  }
+  metadata_startup_script = file("vm3_startup_script.sh")
+
+  tags = ["http-server", "https-server", "web"]
 
 }

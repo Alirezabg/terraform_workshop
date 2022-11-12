@@ -4,7 +4,6 @@ credentials.json
 .terraform
 .terraform.tfstate.info
 terraform.tfstate
-terraform.tfstate.backup
 crash.log
 test/fixtures/shared/terraform.tfvars
 
