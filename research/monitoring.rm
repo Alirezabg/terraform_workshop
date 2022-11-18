@@ -1,1 +1,16 @@
 Monitoring: logs, metrics, traces and so on. How they work together and why you need them
+
+Log-based metrics, which you can use as follows:
+    .To create alerting policies that notify you of changes over time.
+    .To create charts that display changes over time.
+When you want to monitor recurring events in your logs over time, use log-based metrics.
+Log-based metrics generate numeric data from your logs.
+Count the occurrences of a message, like a warning or error, in your logs and receive a notification when the number of occurrences crosses a threshold.
+Observe trends in your data, like latency values in your logs, and receive a notification if the values change in an unacceptable way.
+Create charts to display the numeric data extracted from your logs.
+User-defined log-based metrics
+Log-based alerting
+
+The purpose of logging is to track error reporting and related data in a centralized way. 
+Logging should be used in big applications and it can be put to use in smaller apps, especially if they provide a crucial function.
+ The term logging can refer both to the practice of event logging or to the actual log files that result.

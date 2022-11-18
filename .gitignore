@@ -10,3 +10,4 @@ terra.json
 .terraform/providers/registry.terraform.io/hashicorp/google-beta/4.43.0/linux_amd64/terraform-provider-google-beta_v4.43.0_x5
 .terraform.lock.hcl
 
+.terraform.tfstate.lock.info

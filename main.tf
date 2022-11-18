@@ -43,6 +43,15 @@ resource "google_compute_firewall" "default" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["web"]
 }
+resource "google_compute_network" "default" {
+  name = "my-network"
+}
+resource "google_compute_subnetwork" "default" {
+  name          = "my-subnet"
+  ip_cidr_range = "10.0.0.0/16"
+  region        = "us-central1"
+  network       = google_compute_network.default.id
+}
 resource "google_compute_instance" "virtual_instance" {
   name         = "api-one-terra"
   machine_type = "e2-medium"
